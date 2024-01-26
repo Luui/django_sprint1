@@ -45,8 +45,6 @@ posts = [
     },
 ]
 
-dict_post = {post.get('id'): post for post in posts}
-
 
 def index(request):
     template = 'blog/index.html'
@@ -56,8 +54,10 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
+    context = {'post': posts[id]}
+    #dict_post = {post.get('id'): post for post in posts}
     try:
-        return render(request, template, dict_post[id])
+        return render(request, template, context)
     except KeyError:
         raise Http404('404 Page not found!')
 

@@ -5,5 +5,5 @@
 {% endblock title %}
 
 {% block content %}
-  {% include "includes/article.html" with category=category text=text|linebreaks %}         
+  {% include "includes/article.html" with text=post.text|linebreaks %}         
 {% endblock content %}

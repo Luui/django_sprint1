@@ -2,21 +2,21 @@
   <article>
       <ul>
         <li>
-          Место: {{ location }}             
+          Место: {{ post.location }}             
         </li>
         <li>
-          Дата: {{ date }}
+          Дата: {{ post.date }}
         </li>
         <li>
-          Категория: <a href="{% url 'blog:category_post' category %}">
-            {{ category }}</a>
+          Категория: <a href="{% url 'blog:category_posts' post.category %}">
+            {{ post.category }}</a>
         </li>
       </ul>
       <p>         
         {{ text }}
       </p>
       {% if view_name == 'blog:index' %}
-        <a href="{% url 'blog:post_detail' id %}">
+        <a href="{% url 'blog:post_detail' post.id %}">
             Читать полный текст</a>
       {% endif %}
   </article>  
