@@ -58,7 +58,7 @@ def post_detail(request, id):
     template = 'blog/detail.html'
     try:
         return render(request, template, dict_post[id])
-    except:
+    except KeyError:
         raise Http404('404 Page not found!')
 
 
