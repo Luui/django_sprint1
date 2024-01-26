@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ location }}. {{ date }}
+{% endblock title %}
+
+{% block content %}
+  {% include "includes/article.html" with category=category text=text|linebreaks %}         
+{% endblock content %}
