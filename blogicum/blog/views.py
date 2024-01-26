@@ -45,6 +45,8 @@ posts = [
     },
 ]
 
+post_dictionary = {post.get('id'): post for post in posts}
+
 
 def index(request):
     template = 'blog/index.html'
@@ -54,7 +56,7 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
-    context = {'post': posts[id]}
+    context = {'post': post_dictionary[id]}
     try:
         return render(request, template, context)
     except KeyError:
